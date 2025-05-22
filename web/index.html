@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="/assets/style.css">
+   </head>
+   <body>
+      <!-- header -->
+      <div class="header">
+         <a href="/" class="logo">haku</a>
+         <div class="header-right">
+            <a href="/settings">Settings</a>
+         </div>
+      </div>
+      <!-- container -->
+      <div class="container">
+         <div class="input-search">
+            <form name="text-input" action="/submit" method="POST">
+               <input type="text" name="user-input" />
+            </form>
+            <h2>{{.Entered}}</h2>
+         </div>
+         <ol>
+            {{range $index, $title := .Title}}
+            <li>
+               <a href="{{index $.Links $index}}">{{$title}}</a><br />
+               {{index $.Description $index}}
+            </li>
+            <br />
+            {{end}}
+         </ol>
+      </div>
+   </body>
+   <script src="/assets/index.js"></script>
+</html>
